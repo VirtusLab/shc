@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hortonworks-spark/shc.svg?branch=master)](https://travis-ci.org/hortonworks-spark/shc)
+[![Build Status](https://travis-ci.org/VirtusLab/shc.svg?branch=master)](https://travis-ci.org/VirtusLab/shc)
 
 # Apache Spark - Apache HBase Connector
 
@@ -46,15 +46,15 @@ Run indiviudal test
 
 Run SHC examples
 
-    ./bin/spark-submit --verbose --class org.apache.spark.sql.execution.datasources.hbase.examples.HBaseSource --master yarn-cluster --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/ --files /usr/hdp/current/hbase-client/conf/hbase-site.xml shc-examples-1.1.1-2.1-s_2.11-SNAPSHOT.jar
+    ./bin/spark-submit --verbose --class org.apache.spark.sql.execution.datasources.hbase.examples.HBaseSource --master yarn-cluster --packages org.virtuslab:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo1.maven.org/maven2/ --files /usr/hdp/current/hbase-client/conf/hbase-site.xml shc-examples-1.1.1-2.1-s_2.11-SNAPSHOT.jar
 
 The following illustrates how to run your application in real hbase cluster. You need to provide the hbase-site.xml. It may subject to change based on your specific cluster configuration.
 
-    ./bin/spark-submit  --class your.application.class --master yarn-client  --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/ --files /etc/hbase/conf/hbase-site.xml /To/your/application/jar
+    ./bin/spark-submit  --class your.application.class --master yarn-client  --packages org.virtuslab:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo1.maven.org/maven2/ --files /etc/hbase/conf/hbase-site.xml /To/your/application/jar
 
 Running Spark applications with this connector, HBase jars of version 1.1.2 will be pulled by default. If Phoenix is enabled on HBase cluster, you need to use "--jars" to pass "phoenix-server.jar". For example:
 
-    ./bin/spark-submit  --class your.application.class --master yarn-client  --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/ --jars /usr/hdp/current/phoenix-client/phoenix-server.jar --files /etc/hbase/conf/hbase-site.xml /To/your/application/jar
+    ./bin/spark-submit  --class your.application.class --master yarn-client  --packages org.virtuslab:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo1.maven.org/maven2/ --jars /usr/hdp/current/phoenix-client/phoenix-server.jar --files /etc/hbase/conf/hbase-site.xml /To/your/application/jar
 
 ## Application Usage
 The following illustrates the basic procedure on how to use the connector. For more details and advanced use case, such as Avro and composite key support, please refer to the examples in the repository.
@@ -122,15 +122,15 @@ Given a DataFrame with specified schema, above will create an HBase table with 5
 ## Configuring Spark-package
 Users can use the Spark-on-HBase connector as a standard Spark package. To include the package in your Spark application use:
 
-_**Note**: com.hortonworks:shc-core:1.1.1-2.1-s_2.11 has not been uploaded to [spark-packages.org](https://spark-packages.org/package/hortonworks-spark/shc), but will be there soon._
+_**Note**: org.virtuslab:shc-core:1.1.1-2.1-s_2.11 has not been uploaded to [spark-packages.org](https://spark-packages.org/package/virtuslab-spark/shc), but will be there soon._
 
 spark-shell, pyspark, or spark-submit
 
-    $SPARK_HOME/bin/spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11
+    $SPARK_HOME/bin/spark-shell --packages org.virtuslab:shc-core:1.1.1-2.1-s_2.11
 
 Users can include the package as the dependency in your SBT file as well. The format is the spark-package-name:version in build.sbt file.
 
-    libraryDependencies += “com.hortonworks/shc-core:1.1.1-2.1-s_2.11”
+    libraryDependencies += “org.virtuslab/shc-core:1.1.1-2.1-s_2.11”
 
 ## Running in secure cluster
 
@@ -138,15 +138,15 @@ For running in a Kerberos enabled cluster, the user has to include HBase related
 retrieval and renewal is done by Spark, and is independent of the connector. In other words, the user needs to initiate the
 environment in the normal way, either through kinit or by providing principal/keytab. The following examples show how to run
 in a secure cluster with both yarn-client and yarn-cluster mode. Note that if your Spark does not contain [SPARK-20059](https://github.com/apache/spark/pull/17388),
-which is in Apache Spark 2.1.1+, and [SPARK-21377](https://issues.apache.org/jira/browse/SPARK-21377), which is in Apache Spark 2.3.0+, you need to set SPARK_CLASSPATH for both modes (refer [here](https://github.com/hortonworks-spark/shc/wiki/1.-Set-SPARK_CLASSPATH)).
+which is in Apache Spark 2.1.1+, and [SPARK-21377](https://issues.apache.org/jira/browse/SPARK-21377), which is in Apache Spark 2.3.0+, you need to set SPARK_CLASSPATH for both modes (refer [here](https://github.com/VirtusLab/shc/wiki/1.-Set-SPARK_CLASSPATH)).
 
 Suppose hrt_qa is a headless account, user can use following command for kinit:
 
     kinit -k -t /tmp/hrt_qa.headless.keytab hrt_qa
 
-    /usr/hdp/current/spark-client/bin/spark-submit --class your.application.class --master yarn-client --files /etc/hbase/conf/hbase-site.xml --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/ /To/your/application/jar
+    /usr/hdp/current/spark-client/bin/spark-submit --class your.application.class --master yarn-client --files /etc/hbase/conf/hbase-site.xml --packages org.virtuslab:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo1.maven.org/maven2/ /To/your/application/jar
 
-    /usr/hdp/current/spark-client/bin/spark-submit --class your.application.class --master yarn-cluster --files /etc/hbase/conf/hbase-site.xml --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/ /To/your/application/jar
+    /usr/hdp/current/spark-client/bin/spark-submit --class your.application.class --master yarn-cluster --files /etc/hbase/conf/hbase-site.xml --packages org.virtuslab:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo1.maven.org/maven2/ /To/your/application/jar
 
 If the solution above does not work and you encounter errors like :
 
@@ -177,7 +177,7 @@ Also, users need to config principal and keytab as below before running their ap
 
 ## Others
 ### Example. Support of Avro schemas:
-The connector fully supports all the avro schemas. Users can use either a complete record schema or partial field schema as data type in their catalog (refer [here](https://github.com/hortonworks-spark/shc/wiki/2.-Native-Avro-Support) for more detailed information).
+The connector fully supports all the avro schemas. Users can use either a complete record schema or partial field schema as data type in their catalog (refer [here](https://github.com/VirtusLab/shc/wiki/2.-Native-Avro-Support) for more detailed information).
     
     val schema_array = s"""{"type": "array", "items": ["string","null"]}""".stripMargin
     val schema_record =

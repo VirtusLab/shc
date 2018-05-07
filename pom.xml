@@ -26,12 +26,12 @@
     <artifactId>apache</artifactId>
     <version>14</version>
   </parent>
-  <groupId>com.hortonworks</groupId>
+  <groupId>org.virtuslab</groupId>
   <artifactId>shc</artifactId>
   <version>1.1.2-2.2-s_2.11-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>HBase Spark Connector Project Parent POM</name>
-  <url>https://github.com/hortonworks-spark/shc</url>
+  <url>https://github.com/VirtusLab/shc</url>
 
   <distributionManagement>
     <repository>
