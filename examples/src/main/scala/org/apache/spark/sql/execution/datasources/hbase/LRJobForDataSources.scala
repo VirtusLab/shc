@@ -1,5 +1,5 @@
 /*
- * (C) 2017 Hortonworks, Inc. All rights reserved. See the NOTICE file
+ * (C) 2018 Virtus Lab sp. z o.o. (Ltd.) All rights reserved. See the NOTICE file
  * distributed with this work for additional information regarding copyright
  * ownership. This file is licensed to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with

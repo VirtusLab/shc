@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * File modified by Hortonworks, Inc. Modifications are also licensed under
+ * File modified by Virtus Lab sp. z o.o. (Ltd.) Modifications are also licensed under
  * the Apache Software License, Version 2.0.
  */
 

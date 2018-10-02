@@ -22,14 +22,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.hortonworks</groupId>
+    <groupId>org.virtuslab</groupId>
     <artifactId>shc</artifactId>
-    <version>1.1.2-2.2-s_2.11-SNAPSHOT</version>
+    <version>1.2.0-2.2-s_2.11-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>shc-examples</artifactId>
-  <version>1.1.2-2.2-s_2.11-SNAPSHOT</version>
+  <version>1.2.0-2.2-s_2.11-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>HBase Spark Connector Project Examples</name>
 
@@ -41,7 +41,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.hortonworks</groupId>
+      <groupId>org.virtuslab</groupId>
       <artifactId>shc-core</artifactId>
       <version>${project.version}</version>
     </dependency>
